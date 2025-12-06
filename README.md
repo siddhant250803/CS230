@@ -47,18 +47,6 @@ Stock volatility prediction is a fundamental challenge in quantitative finance. 
 </p>
 
 
-### DeltaLag Attention Mechanism
-
-The core innovation is the **learnable lag distribution**. For each stock $i$ in the universe, the model maintains a categorical distribution over lags:
-
-$$p(\ell | i) = \text{softmax}(\theta_i) \quad \text{for } \ell \in \{0, 1, ..., L_{max}-1\}$$
-
-The expected embedding for stock $i$ is computed as:
-
-$$\mathbf{e}_i = \sum_{\ell=0}^{L_{max}-1} p(\ell | i) \cdot \mathbf{x}_{t-\ell, i}$$
-
-This allows the model to learn that, for example, energy sector stocks might lead tech stocks by 3-4 intervals (15-20 minutes), while market indices might have near-immediate effects.
-
 ### Hyperparameters
 
 | Parameter | Default | Description |
