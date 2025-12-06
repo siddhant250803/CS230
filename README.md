@@ -8,7 +8,7 @@
 
 ## Abstract
 
-This project introduces a **Lag-Former** architecture - a novel attention-based neural network designed to predict high-frequency stock volatility by learning optimal temporal lag dependencies across multiple stocks. Unlike traditional approaches that assume fixed or uniform time delays, our model discovers stock-specific lag distributions that capture how information propagates across securities at different speeds. We demonstrate that the Lag-Former significantly outperforms linear regression baselines on 5-minute interval stock data.
+Modern equity markets are deeply interconnected. A shock in one stock, such as a large sell order in a major index constituent, can ripple across related firms, sectors, or the broader market within minutes. Traditional econometric models fail to capture cross-correlations between stocks that govern volatility transmission in real time. We propose an attention model with a learnt lag distribution that learns how volatility propagates among large-cap U.S. equities sampled every 5 minutes, identifying how one stock can be affected by movement of other stocks. We present a transformer based model with a novel learned lag architecture which performs better than a benchmark linear regression technique. The model also provides useful information about the lagged effect of stocks on each other.
 
 ## Table of Contents
 
@@ -46,45 +46,6 @@ Stock volatility prediction is a fundamental challenge in quantitative finance. 
   <img src="https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white" alt="Python"/>
 </p>
 
-### Overview
-
-The **DeltaLag Attention Model** consists of three main components:
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                      Lag-Former Architecture                    │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│   Input: Returns & Volatility for N stocks over T timesteps     │
-│                              │                                  │
-│                              ▼                                  │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │              Stock Embedding Layer                      │   │
-│   │         (Returns, Volatility) → d_model dim             │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                              │                                  │
-│                              ▼                                  │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │            DeltaLag Attention Module                    │   │
-│   │  • Learn lag distribution p(lag | stock_i)              │   │
-│   │  • Compute expected embedding under lag distribution    │   │
-│   │  • Cross-stock attention with Q/K/V projections         │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                              │                                  │
-│                              ▼                                  │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │              Target Stock Embedding                     │   │
-│   │        Concatenate with attention context               │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                              │                                  │
-│                              ▼                                  │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │                  MLP Prediction Head                    │   │
-│   │         Context + Target → Volatility Prediction        │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
 
 ### DeltaLag Attention Mechanism
 
