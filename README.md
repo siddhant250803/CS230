@@ -25,7 +25,7 @@ This project introduces a **Lag-Former** architecture - a novel attention-based 
 
 ## Introduction
 
-Stock volatility prediction is a fundamental challenge in quantitative finance. Traditional approaches, such as GARCH models and linear regression, assume that past values of a target stock's volatility are the primary predictors of future volatility. However, in interconnected markets, **cross-stock dependencies** and **variable time lags** play a crucial role—information may flow from oil stocks to tech stocks, or from market indices to individual securities, with delays that vary by sector and relationship.
+Stock volatility prediction is a fundamental challenge in quantitative finance. Traditional approaches, such as GARCH models and linear regression, assume that past values of a target stock's volatility are the primary predictors of future volatility. However, in interconnected markets, **cross-stock dependencies** and **variable time lags** play a crucial role - information may flow from oil stocks to tech stocks, or from market indices to individual securities, with delays that vary by sector and relationship.
 
 ### Key Contributions
 
@@ -52,10 +52,10 @@ The **DeltaLag Attention Model** consists of three main components:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                      Lag-Former Architecture                     │
+│                      Lag-Former Architecture                    │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
-│   Input: Returns & Volatility for N stocks over T timesteps    │
+│   Input: Returns & Volatility for N stocks over T timesteps     │
 │                              │                                  │
 │                              ▼                                  │
 │   ┌─────────────────────────────────────────────────────────┐   │
@@ -73,14 +73,14 @@ The **DeltaLag Attention Model** consists of three main components:
 │                              │                                  │
 │                              ▼                                  │
 │   ┌─────────────────────────────────────────────────────────┐   │
-│   │              Target Stock Embedding                      │   │
-│   │        Concatenate with attention context                │   │
+│   │              Target Stock Embedding                     │   │
+│   │        Concatenate with attention context               │   │
 │   └─────────────────────────────────────────────────────────┘   │
 │                              │                                  │
 │                              ▼                                  │
 │   ┌─────────────────────────────────────────────────────────┐   │
-│   │                  MLP Prediction Head                     │   │
-│   │         Context + Target → Volatility Prediction         │   │
+│   │                  MLP Prediction Head                    │   │
+│   │         Context + Target → Volatility Prediction        │   │
 │   └─────────────────────────────────────────────────────────┘   │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
