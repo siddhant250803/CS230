@@ -8,7 +8,7 @@
 
 ## Abstract
 
-This project introduces a **Lag-Former** architecture—a novel attention-based neural network designed to predict high-frequency stock volatility by learning optimal temporal lag dependencies across multiple stocks. Unlike traditional approaches that assume fixed or uniform time delays, our model discovers stock-specific lag distributions that capture how information propagates across securities at different speeds. We demonstrate that the Lag-Former significantly outperforms linear regression baselines on 5-minute interval stock data.
+This project introduces a **Lag-Former** architecture - a novel attention-based neural network designed to predict high-frequency stock volatility by learning optimal temporal lag dependencies across multiple stocks. Unlike traditional approaches that assume fixed or uniform time delays, our model discovers stock-specific lag distributions that capture how information propagates across securities at different speeds. We demonstrate that the Lag-Former significantly outperforms linear regression baselines on 5-minute interval stock data.
 
 ## Table of Contents
 
