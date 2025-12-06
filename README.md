@@ -196,29 +196,6 @@ This generates:
 
 ## Results
 
-### Performance Comparison
-
-The Lag-Former consistently outperforms linear regression baselines:
-
-| Target Stock | Model | MSE | RMSE | MAE |
-|--------------|-------|-----|------|-----|
-| AAPL | Linear Regression | Higher | Higher | Higher |
-| AAPL | **Lag-Former** | **Lower** | **Lower** | **Lower** |
-| APA | Linear Regression | Higher | Higher | Higher |
-| APA | **Lag-Former** | **Lower** | **Lower** | **Lower** |
-
-### Learned Lag Distributions
-
-The model discovers meaningful temporal dependencies:
-
-<p align="center">
-  <em>Example: Lag distributions learned for AAPL prediction task</em>
-</p>
-
-- **Oil stocks** tend to show varied lag patterns (2-8 intervals)
-- **Tech stocks** show sector-correlated lags
-- **Market index (SPY)** often exhibits leading behavior with shorter lags
-
 ### Attention Weights
 
 The attention mechanism reveals cross-stock dependencies:
@@ -286,22 +263,6 @@ The entropy term encourages the model to use information from multiple stocks ra
 - **Gradient Clipping**: Max norm of 1.0
 - **Batch Size**: 32
 - **Data Split**: Chronological (no shuffling across time)
-
-### Avoiding Data Leakage
-
-1. Normalization statistics computed only on training data
-2. Strict chronological splitting
-3. No overlapping windows between train/val/test
-
----
-
-## Future Work
-
-- **Multi-head attention** for capturing diverse temporal patterns
-- **Positional encodings** for explicit time awareness  
-- **Larger stock universes** with sector-specific sub-networks
-- **Alternative targets**: Return prediction, tail risk estimation
-- **Real-time inference** for live trading applications
 
 ---
 
