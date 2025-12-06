@@ -41,11 +41,6 @@ Stock volatility prediction is a fundamental challenge in quantitative finance. 
 
 ## Model Architecture
 
-<p align="center">
-  <img src="https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch"/>
-  <img src="https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white" alt="Python"/>
-</p>
-
 
 ### Hyperparameters
 
